@@ -28,12 +28,12 @@ The **PMGSY** scheme was launched to provide **all-weather road connectivity** t
 
 ## ⚙️ Setup
 
-- To run the analysis, ensure you have the following Python libraries installed:
+- To run the analysis(Analysis_of_pmgsy.py), ensure you have the following Python libraries installed on your system:
 
 ```bash
 pip install pandas numpy matplotlib
 ```
-- Or a Google Colab Environment
+- Or a Google Colab Environment(PMGSY-Scheme_Analysis.ipynb)
 ---
 
 ## 📁 Data Description
