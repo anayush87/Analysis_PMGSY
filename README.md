@@ -61,17 +61,23 @@ The analysis uses two main datasets:
 The project generates several insightful visualizations:
 
 1. **Stacked Bar Chart**: Total road length by state and scheme
+  ![PMGSY Analysis Dashboard](imagesPMGSY/totalRoadLength.png)
 2. **Nested Pie Chart**: Expenditure distribution (state-wise outer ring, scheme-wise inner ring)
+  ![Expenditure Distribution](imagesPMGSY/expenditureDistribution.png)
 3. **Bar Chart**: Balance road length by state
+  ![Balance Road length by State](imagesPMGSY/balanceRoadLength.png)
 4. **Horizontal Bar Chart**: Average expenditure difference per km by state
-5. **Horizontal Bar Chart**: Average road length per sq km (road density)
-6. **Pie Chart**: Proportion of total road length by top 10 states
+  ![Average Expenditure Difference](imagesPMGSY/averageExpenditure.png)
+5. **Pie Chart**: Proportion of total road length by top 10 states
+  ![Proportion of total road length](imagesPMGSY/proportionalOfTotalRoadLength.png)
 
 ## 🔍 Analysis Highlights
 
 ### Data Preprocessing
 - Removed bridge-related columns for focused road analysis
+- ![dataCleaning](imagesPMGSY/dataCleaning.png)
 - Filtered out zero values to ensure data quality
+- ![handlingZeroValues](imagesPMGSY/handlingZeroValues.png)
 - Created derived metrics for per-kilometer analysis
 
 ### Key Metrics Calculated
