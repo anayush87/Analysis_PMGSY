@@ -6,12 +6,12 @@ This repository presents an analysis of the **Pradhan Mantri Gram Sadak Yojana (
 
 ## 📚 Table of Contents
 
-- [Introduction](#introduction)
-- [Setup](#setup)
-- [Data Description](#data-description)
-- [Analysis Steps](#analysis-steps)
-- [Results](#results)
-- [Conclusion](#conclusion)
+- [Introduction](#Introduction)
+- [Setup](#Setup)
+- [Data Description](#Data_Description)
+- [Analysis Steps](#Analysis_Steps)
+- [Results](#Results)
+- [Conclusion](#Conclusion)
 
 ---
 
@@ -28,11 +28,12 @@ The **PMGSY** scheme was launched to provide **all-weather road connectivity** t
 
 ## ⚙️ Setup
 
-To run the analysis, ensure you have the following Python libraries installed:
+- To run the analysis, ensure you have the following Python libraries installed:
 
 ```bash
 pip install pandas numpy matplotlib
 ```
+- Or a Google Colab Environment
 ---
 
 ## 📁 Data Description
