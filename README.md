@@ -1,120 +1,157 @@
-# 🚧 Analysis of PMGSY Scheme (Pradhan Mantri Gram Sadak Yojana)
+# Analysis of PMGSY Scheme 🛣️
 
-This repository presents an analysis of the **Pradhan Mantri Gram Sadak Yojana (PMGSY)** scheme using publicly available data. The objective is to understand the distribution, progress, and expenditure on rural road development across various Indian states.
+A comprehensive data analysis of India's Pradhan Mantri Gram Sadak Yojana (PMGSY) - a flagship rural road connectivity program aimed at providing all-weather road access to unconnected villages.
 
----
+## 📊 Project Overview
 
-## 📚 Table of Contents
+This project analyzes the performance, expenditure patterns, and regional distribution of the PMGSY scheme across Indian states. The analysis provides insights into road construction progress, cost efficiency, and regional connectivity improvements.
 
-- [Introduction](#Introduction)
-- [Setup](#Setup)
-- [Data Description](#Data_Description)
-- [Analysis Steps](#Analysis_Steps)
-- [Results](#Results)
-- [Conclusion](#Conclusion)
+## 🎯 Objectives
 
----
+- **Performance Analysis**: Evaluate road construction progress across different states
+- **Cost Efficiency**: Compare sanctioned vs actual expenditure per kilometer
+- **Regional Distribution**: Analyze scheme implementation across states and PMGSY sub-schemes
+- **Road Density Analysis**: Calculate road length per square kilometer by state
+- **Statistical Testing**: Test hypotheses about relationships between variables
 
-## 🛣️ Introduction
+## 📈 Key Findings
 
-The **PMGSY** scheme was launched to provide **all-weather road connectivity** to unconnected rural habitations. This analysis focuses on:
+### 🏆 Top Performing States
+- **Uttar Pradesh**, **Madhya Pradesh**, and **Rajasthan** lead in terms of number of construction projects
+- Total coverage: **2,245 construction projects** across the country
 
-- Sanctioned vs. completed road works  
-- Expenditure per kilometer  
-- Balance road lengths  
-- Scheme-wise and state-wise performance  
+### 💰 Expenditure Insights
+- Comprehensive analysis of sanctioned vs actual expenditure
+- Cost overruns and underruns identified by state
+- Average expenditure difference per kilometer calculated
 
----
+### 🗺️ Regional Analysis
+- Road density analysis showing connectivity improvements
+- State-wise balance road length remaining
+- Proportion of total road length by state
 
-## ⚙️ Setup
+## 🛠️ Technologies Used
 
-- To run the analysis(Analysis_of_pmgsy.py), ensure you have the following Python libraries installed on your system:
+- **Python 3.x**
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical computations
+- **Matplotlib**: Data visualization
+- **SciPy**: Statistical analysis
+- **Google Colab**: Development environment
 
+## 📁 Dataset Description
+
+The analysis uses two main datasets:
+
+### Primary Dataset (PMGSY.csv)
+- `STATE_NAME`: Name of the state
+- `PMGSY_SCHEME`: Sub-scheme under PMGSY
+- `LENGTH_OF_ROAD_WORK_SANCTIONED_KM`: Sanctioned road length
+- `LENGTH_OF_ROAD_WORK_COMPLETED_KM`: Completed road length
+- `LENGTH_OF_ROAD_WORK_BALANCE_KM`: Remaining road length
+- `COST_OF_WORKS_SANCTIONED_LAKHS`: Sanctioned cost (in lakhs)
+- `EXPENDITURE_OCCURED_LAKHS`: Actual expenditure (in lakhs)
+
+### Supporting Dataset (state area.csv)
+- `STATE_NAME`: Name of the state
+- `AREA_SQ_KM`: Area of the state in square kilometers
+
+## 📊 Visualizations
+
+The project generates several insightful visualizations:
+
+1. **Stacked Bar Chart**: Total road length by state and scheme
+2. **Nested Pie Chart**: Expenditure distribution (state-wise outer ring, scheme-wise inner ring)
+3. **Bar Chart**: Balance road length by state
+4. **Horizontal Bar Chart**: Average expenditure difference per km by state
+5. **Horizontal Bar Chart**: Average road length per sq km (road density)
+6. **Pie Chart**: Proportion of total road length by top 10 states
+
+## 🔍 Analysis Highlights
+
+### Data Preprocessing
+- Removed bridge-related columns for focused road analysis
+- Filtered out zero values to ensure data quality
+- Created derived metrics for per-kilometer analysis
+
+### Key Metrics Calculated
+- **Sanctioned expenditure per km**: `COST_OF_WORKS_SANCTIONED_LAKHS / LENGTH_OF_ROAD_WORK_SANCTIONED_KM`
+- **Actual expenditure per km**: `EXPENDITURE_OCCURED_LAKHS / LENGTH_OF_ROAD_WORK_COMPLETED_KM`
+- **Expenditure difference**: Actual vs Sanctioned expenditure per km
+- **Road density**: `LENGTH_OF_ROAD_WORK_COMPLETED_KM / AREA_SQ_KM`
+
+### Statistical Analysis
+- **Pearson Correlation Test**: Examining relationship between total road length and state area
+- **Hypothesis Testing**: Evaluating significance of relationships between variables
+
+## 🚀 Getting Started
+
+### Prerequisites
 ```bash
-pip install pandas numpy matplotlib
-```
-- Or a Google Colab Environment(PMGSY-Scheme_Analysis.ipynb)
----
-
-## 📁 Data Description
-The dataset includes the following columns:
-
-```
-STATE_NAME: Name of the state
-
-DISTRICT_NAME: Name of the district
-
-PMGSY_SCHEME: Scheme type under PMGSY
-
-NO_OF_ROAD_WORK_SANCTIONED: Number of works sanctioned
-
-NO_OF_ROAD_WORKS_COMPLETED: Number of works completed
-
-NO_OF_ROAD_WORKS_BALANCE: Remaining road works
-
-LENGTH_OF_ROAD_WORK_SANCTIONED_KM: Sanctioned road length (km)
-
-COST_OF_WORKS_SANCTIONED_LAKHS: Sanctioned cost (₹ Lakhs)
-
-LENGTH_OF_ROAD_WORK_COMPLETED_KM: Completed road length (km)
-
-EXPENDITURE_OCCURED_LAKHS: Actual expenditure (₹ Lakhs)
-
-LENGTH_OF_ROAD_WORK_BALANCE_KM: Balance road length (km)
+pip install pandas numpy matplotlib scipy
 ```
 
----
+### Running the Analysis
+1. Clone this repository
+```bash
+git clone https://github.com/yourusername/pmgsy-analysis.git
+cd pmgsy-analysis
+```
 
-## 📊 Analysis Steps
+2. Upload your datasets to Google Colab or update file paths
+3. Run the Jupyter notebook or Python script
 
-Data Cleaning:
-Removed non-road columns (e.g., bridges), filtered zero or missing values.
+### File Structure
+```
+pmgsy-analysis/
+│
+├── Analysis_of_pmgsy.py          # Main analysis script
+├── PMGSY.csv                     # Primary dataset
+├── state area.csv                # State area dataset
+├── README.md                     # This file
+└── outputs/                      # Generated CSV files and plots
+    ├── scheme_summary.csv
+    ├── scheme_expenditure.csv
+    ├── total_expenditure.csv
+    ├── df_balance.csv
+    ├── state_difference.csv
+    ├── length_per_sqkm_by_state.csv
+    └── state_road_length.csv
+```
 
-Expenditure Metrics:
+## 📋 Output Files
 
-Calculated expenditure per km (sanctioned and actual).
+The analysis generates several CSV files for further use:
+- `scheme_summary.csv`: Road length summary by state and scheme
+- `scheme_expenditure.csv`: Expenditure by PMGSY scheme
+- `total_expenditure.csv`: Total expenditure by state
+- `df_balance.csv`: Balance road length by state
+- `state_difference.csv`: Average expenditure difference by state
+- `length_per_sqkm_by_state.csv`: Road density by state
+- `state_road_length.csv`: Total road length by state
 
-Removed anomalies (e.g., 0 km or 0 cost rows).
+## 🔬 Statistical Findings
 
-State-wise & Scheme-wise Summary:
-Grouped data by state and scheme to summarize:
+### Hypothesis Testing
+**H0**: No significant relationship between total road length and state area  
+**H1**: Significant relationship exists between total road length and state area
 
-Total sanctioned & completed works
+Results from Pearson correlation analysis provide insights into whether larger states tend to have proportionally more road construction under PMGSY.
 
-Road lengths
+## 🎨 Key Insights
 
-Expenditure per scheme
+1. **Regional Focus**: PMGSY shows concentrated efforts in states with larger rural populations
+2. **Cost Variations**: Significant variations in per-kilometer costs across states
+3. **Completion Rates**: Analysis of completed vs sanctioned road lengths
+4. **Efficiency Metrics**: States with better cost management and completion rates identified
 
-Visualizations:
+## 🤝 Contributing
 
-Bar plots: Completed lengths by state
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-Pie charts: Expenditure distribution by scheme
 
-Histograms: Frequency of works
+## 🙏 Acknowledgments
 
-Balance road lengths: Per-state summary
-
----
-
-## 📈 Results
-Total constructions analyzed: 2245
-
-Top 3 States by number of works:
-
-Uttar Pradesh
-
-Madhya Pradesh
-
-Rajasthan
-
-Notable insights:
-
-Some states show high expenditure per km but lower completion rates.
-
-PMGSY-I dominates in number of works and completion percentage.
-
----
-
-## ✅ Conclusion
-This analysis sheds light on the progress and efficiency of rural road development under the PMGSY scheme. It identifies top-performing states, budget utilization patterns, and areas with significant balance work, supporting future policy decisions and resource allocation.
+- Data sourced from official PMGSY records
+- Ministry of Rural Development, Government of India
+- Contributors to the rural development sector analysis
