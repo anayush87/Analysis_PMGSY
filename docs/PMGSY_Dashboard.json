@@ -1,0 +1,66 @@
+{
+    "name": "PMGSY Dashboard",
+    "pages": [
+      {
+        "name": "Executive Summary",
+        "displayName": "Executive Summary",
+        "visuals": [
+          {
+            "name": "KPI_TotalProjects",
+            "type": "card",
+            "config": {
+              "title": "Total Projects",
+              "value": "[Total Projects]",
+              "formatting": {
+                "backgroundColor": {"solid": {"color": "#2E86C1"}},
+                "fontColor": {"solid": {"color": "#FFFFFF"}},
+                "textSize": 14
+              }
+            }
+          },
+          {
+            "name": "StateRoadLength_Treemap",
+            "type": "treemap",
+            "config": {
+              "category": "STATE_NAME",
+              "value": "[Total Road Length (Km)]",
+              "colorSaturation": "[Total Expenditure (Cr)]",
+              "formatting": {
+                "dataColors": {"minColor": "#3498DB", "maxColor": "#E74C3C"},
+                "title": "State-wise Road Length (Km)"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Detailed Analysis",
+        "displayName": "Detailed Analysis",
+        "visuals": [
+          {
+            "name": "RoadDensity_Scatter",
+            "type": "scatter",
+            "config": {
+              "xAxis": "StateArea[AREA_SQ_KM]",
+              "yAxis": "[Road Density]",
+              "size": "[Total Expenditure (Cr)]",
+              "legend": "STATE_NAME",
+              "formatting": {
+                "title": "Road Density vs State Area"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "filters": [
+      {
+        "type": "slicer",
+        "target": {
+          "table": "PMGSY",
+          "column": "STATE_NAME"
+        },
+        "displayName": "State Filter"
+      }
+    ]
+  }
