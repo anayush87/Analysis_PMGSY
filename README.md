@@ -100,7 +100,7 @@ pip install pandas numpy matplotlib scipy
 ### Running the Analysis
 1. Clone this repository
 ```bash
-git clone https://github.com/yourusername/pmgsy-analysis.git
+git clone https:/github.com/Abhyansh22/Analysis_PMGSY.git
 cd pmgsy-analysis
 ```
 
